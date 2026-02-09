@@ -14,18 +14,23 @@ You’ll build four small, real-world features on one page:
 4) live weather for Dammam using the OpenWeatherMap API
 
 > **Setup tips:**  
-> - Open the page via a local server (e.g., VS Code “Live Server”) or in the Google Chrome.  
+> - Open the page via a local server (e.g., VS Code “Live Server”) or in the Google Chrome using dev tool.  
 > - Use the links in the TODO's task to connect with API's.
+
+> **Note:**  
+> Please use script.js file to perform TODOs and follow the steps strictly to gain good marks in the assignment.  
+>  
+> **Due Date:** 16 Feb, 2026, **11:59 PM**
 
 ---
 
 ## 2) Reading Assignment
 Read the following **sections** from the Zybooks.
 
-- [5.1 Using JavaScript with HTML](https://learn.zybooks.com/zybook/SWE363Fall2025/chapter/5/section/1)
-- [5.2 Document Object Model (DOM)](https://learn.zybooks.com/zybook/SWE363Fall2025/chapter/5/section/2)
-- [5.3 Using third-party web APIs (JavaScript)](https://learn.zybooks.com/zybook/SWE363Fall2025/chapter/5/section/3)
-- [5.4 JavaScript Object Notation (JSON)](https://learn.zybooks.com/zybook/SWE363Fall2025/chapter/5/section/4)
+- 5.1 Using JavaScript with HTML
+- 5.2 Document Object Model (DOM)
+- 5.3 Using third-party web APIs (JavaScript)
+- 5.4 JavaScript Object Notation (JSON)
 
 ---
 
