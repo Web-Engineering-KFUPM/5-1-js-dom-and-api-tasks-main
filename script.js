@@ -19,6 +19,10 @@ Hint:
 document.getElementById() to change inner HTML;
 */
  
+window.addEventListener("DOMContentLoaded", () => {
+  const msg = document.getElementById("t1-msg");
+  if (msg) msg.textContent = "Hello, World!";
+});
 
 /*  
 =======================================
@@ -39,6 +43,14 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
+const t2Btn = document.getElementById("t2-btn");
+const t2Status = document.getElementById("t2-status");
+
+if (t2Btn && t2Status) {
+  t2Btn.addEventListener("click", () => {
+    t2Status.textContent = "You clicked the button!";
+  });
+}
  
 
 /*  
@@ -68,6 +80,26 @@ After fetching and converting to JSON, use:
 data.quote    // the quote text
 data.author   // the author
 */
+const t3Btn = document.getElementById("t3-loadQuote");
+const t3Quote = document.getElementById("t3-quote");
+const t3Author = document.getElementById("t3-author");
+
+if (t3Btn && t3Quote && t3Author) {
+  t3Btn.addEventListener("click", async () => {
+    try {
+      const res = await fetch("https://dummyjson.com/quotes/random");
+      if (!res.ok) throw new Error("Failed to fetch quote");
+      const data = await res.json();
+
+      t3Quote.textContent = data.quote ?? "";
+      t3Author.textContent = data.author ?? "";
+    } catch (err) {
+      // optional for UX; keep simple for grading
+      t3Quote.textContent = "Could not load quote.";
+      t3Author.textContent = "";
+    }
+  });
+}
  
 
 /*  
@@ -94,3 +126,31 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+
+const API_KEY = "REPLACE_WITH_YOUR_KEY"; // keep private in instructor copy
+const t4Btn = document.getElementById("t4-loadWx");
+const t4Temp = document.getElementById("t4-temp");
+const t4Hum = document.getElementById("t4-hum");
+const t4Wind = document.getElementById("t4-wind");
+
+if (t4Btn && t4Temp && t4Hum && t4Wind) {
+  t4Btn.addEventListener("click", async () => {
+    try {
+      const url =
+        `https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=${API_KEY}&units=metric`;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch weather");
+      const data = await res.json();
+
+      t4Temp.textContent = `${data.main.temp}`;
+      t4Hum.textContent = `${data.main.humidity}`;
+      t4Wind.textContent = `${data.wind.speed}`;
+    } catch (err) {
+      // optional for UX; keep simple for grading
+      t4Temp.textContent = "N/A";
+      t4Hum.textContent = "N/A";
+      t4Wind.textContent = "N/A";
+    }
+  });
+}
